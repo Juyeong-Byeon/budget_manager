@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-export default function BudgetItem({items}) {
+export default function BudgetItem({item}) {
+    const{useage,cost}=item;
     return (
         <div>
-            {items&&items.map((item,i)=>{return(<div>1</div>)})}
+            <span>{useage}:</span>
+            <span>{cost}</span>
         </div>
     )
 }

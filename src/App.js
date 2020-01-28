@@ -10,12 +10,12 @@ function App() {
  const [budgetUseageInfo,setbudgetUseageInfo]=useState([
    {
     category:"밥먹기",
-    items:[{useage:'김치찌개',cost:1000}],
+    items:[{useage:'김치찌개',cost:1000},{useage:'돈까스',cost:1200},{useage:'된장찌개',cost:1400},],
     used:0
    },
    {
-    category:"밥먹기",
-    items:[{useage:'김치찌개',cost:1000}],
+    category:"옷사기",
+    items:[{useage:'바지',cost:1000}],
     used:0
    }
   ]);

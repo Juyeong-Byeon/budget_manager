@@ -4,7 +4,7 @@ import BudgetCategory from './BudgetCategory';
 export default function BudgetCategoryList({BudgetCategorys}) {
     return (
         <div>
-            {BudgetCategorys&&BudgetCategorys.map((Category,i)=>{return(<BudgetCategory key={i} Category={Category}></BudgetCategory>)})}
+            {BudgetCategorys&&BudgetCategorys.map((Category,i)=>{return(<BudgetCategory key={Category.category} Category={Category}></BudgetCategory>)})}
         </div>
     )
 }
