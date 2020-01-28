@@ -1,10 +1,10 @@
 import React from 'react'
 import BudgetCategory from './BudgetCategory';
 
-export default function BudgetCategoryList() {
+export default function BudgetCategoryList({BudgetCategorys}) {
     return (
         <div>
-            <BudgetCategory></BudgetCategory>
+            {BudgetCategorys&&BudgetCategorys.map((Category,i)=>{return(<BudgetCategory key={i} Category={Category}></BudgetCategory>)})}
         </div>
     )
 }
