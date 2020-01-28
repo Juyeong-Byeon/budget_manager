@@ -1,5 +1,40 @@
+html{
+  overflow-y: hidden;
+}
+::-webkit-scrollbar{
+  background-color: #39404d;
+}
+
 .App {
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  border-radius: 0.3rem;
+  background-color: #282c34;
+  width:50%;
+  height:800px;
+  color:white;
+  font-size: 1.3rem;
+  align-items:'center';
+  overflow-y: none;
+}
+button{
+  background-color: #3641a76b;
+  border:none ;
+  border-radius: 3px;
+  width:5rem;
+  height: 2rem;
+  font-size:1.2rem;
+  color:white;
+}
+input{
+  background-color: #04040570;
+  border-radius: 0.3rem;
+  border-style:none;
+  height: 1.5rem;
+  width: 40%;
+  color: aliceblue;
+  font-size: 1.3rem;
 }
 
 .App-logo {
