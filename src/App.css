@@ -1,10 +1,30 @@
+html{
+  overflow-y: hidden;
+}
+::-webkit-scrollbar{
+  background-color: #39404d;
+}
+
 .App {
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   background-color: #282c34;
-  width:100%;
-  height:1000px;
+  width:50%;
+  height:100%;
   color:white;
   font-size: 1.3rem;
+  align-items:'center';
+  overflow-y: none;
+}
+button{
+  background-color: #3641a76b;
+  border:none ;
+  border-radius: 3px;
+  width:5rem;
+  height: 2rem;
+  font-size:1.2rem;
+  color:white;
 }
 
 .App-logo {
