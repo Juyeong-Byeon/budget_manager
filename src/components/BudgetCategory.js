@@ -4,6 +4,7 @@ import BudgetItem from './BudgetItem';
 export default function BudgetCategory({Category}) {
     
     const {category,items}=Category;
+    
     console.log(category);
     return (
         <div style={{borderWeight:'3rem', borderColor:'white', borderStyle:'solid', borderRadius:'1rem', backgroundColor:'rgba(5,5,5,0.1)',margin:'1rem'}}>
