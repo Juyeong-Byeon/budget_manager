@@ -74,12 +74,15 @@ function App() {
     );
   },[budgetUseageInfos]);
   
+  const DeleteItem=useCallback(({useage,cost})=>{
+    console.log(useage,cost);
+  },[budgetUseageInfos]);
 
   return (
     <div className="App">
       <BudgetSetter SubmitBudget={SubmitBudget} /*총예산 관리 컴포넌트*/></BudgetSetter >
        <BudgetController CategoryAdd={CategoryAdd} ItemAdd={ItemAdd} Categorys={budgetUseageInfos} /*카테고리별 예산관리, 사용내역 추가 컴포넌트*/></BudgetController >
-      <BudgetCategoryList BudgetCategorys={budgetUseageInfos} DeleteCategory={DeleteCategory}/* 카테고리 리스트(카테고리(사용내역))*/></BudgetCategoryList >
+      <BudgetCategoryList DeleteItem={DeleteItem} BudgetCategorys={budgetUseageInfos} DeleteCategory={DeleteCategory}/* 카테고리 리스트(카테고리(사용내역))*/></BudgetCategoryList >
       <BudgetTotal TotalBudget={TotalBudget}  BudgetUseageInfos={budgetUseageInfos} /*현제 남은 예산*/></BudgetTotal> 
     </div>
   );

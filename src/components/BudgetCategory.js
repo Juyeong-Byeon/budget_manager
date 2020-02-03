@@ -1,7 +1,7 @@
 import React from 'react'
 import BudgetItem from './BudgetItem';
 
-export default function BudgetCategory({Category,DeleteCategory}) {
+export default function BudgetCategory({Category,DeleteCategory,DeleteItem}) {
     
     const {category,items}=Category;
     
@@ -13,7 +13,7 @@ export default function BudgetCategory({Category,DeleteCategory}) {
                 <span ><button onClick={(e)=>{DeleteCategory(category)}} style={{width:'20px', height:'20px',textAlign:"center",marginLeft:'1rem',marginRight:'0',backgroundColor:'red',padding:0}}>X</button></span>
             </div>
             <div>
-                {Category&&items.map((item,i)=>{return(<BudgetItem key={i} item={item}></BudgetItem>)})}
+                {Category&&items.map((item,i)=>{return(<BudgetItem DeleteItem={DeleteItem}  key={i} item={item}></BudgetItem>)})}
             </div>
         </div>
     )
