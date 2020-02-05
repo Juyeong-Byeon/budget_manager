@@ -12,11 +12,11 @@ html{
   border-radius: 0.3rem;
   background-color: #282c34;
   width:50%;
-  height:800px;
+  height:70%;
   color:white;
   font-size: 1.3rem;
   align-items:'center';
-  overflow-y: none;
+  overflow-y: scroll;
 }
 button{
   background-color: #3641a76b;

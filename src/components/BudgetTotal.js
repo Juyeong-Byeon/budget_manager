@@ -8,9 +8,9 @@ export default function BudgetTotal({TotalBudget,BudgetUseageInfos}) {
     }
   
     return (
-        <div style={{margin:'3rem'}}>
-            <h2>Left budget: {TotalBudget-used} 원</h2>
-            <h3>{TotalBudget-used>=0?"":"예산초과!"}</h3>
+        <div >
+            <h2 style={{margin:'0.2rem'}} >Left budget: {TotalBudget-used} 원</h2>
+            <h3 style={{margin:'0.1rem'}}>{TotalBudget-used>=0?"":"예산초과!"}</h3>
         </div>
     )
 }
