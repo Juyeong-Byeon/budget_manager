@@ -20,7 +20,7 @@ export default function BudgetController({Categorys,CategoryAdd,ItemAdd}) {
             <div>
                 <span>
                         <label htmlFor="selectCategory">Category : </label>
-                        <select id='selectCategory' onChange={(e)=>setItem({...currentItem,itemCategory:e.target.value})} value={currentItem.itemCategory}>
+                        <select style={{backgroundColor:'#192F5E', color:'rgb(255,255,255)',width:'30%'}} id='selectCategory' onChange={(e)=>setItem({...currentItem,itemCategory:e.target.value})} value={currentItem.itemCategory}>
                             <option key='default'>선택</option>
                            {Categorys&&Categorys.map((category,index)=>{return(<option key={category.category}>{category.category}</option>)})}
                         </select>
@@ -38,7 +38,6 @@ export default function BudgetController({Categorys,CategoryAdd,ItemAdd}) {
                             }
                             else{
                                 return;
-                            
                             }
                         }
                     } 

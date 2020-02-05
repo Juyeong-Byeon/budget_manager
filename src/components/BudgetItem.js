@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react'
 
-export default function BudgetItem({item,DeleteItem}) {
-    const{useage,cost}=item;
-    
+export default function BudgetItem({item,DeleteItem,category}) {
+    const{useage,cost,date}=item;
+    console.log(typeof(date));
     return (
         <div>
              <hr/>
             <span>{useage}:</span>
             <span> -{cost}</span>
-            <span ><button onClick={()=>DeleteItem(useage,cost)} style={{width:'20px', height:'20px',textAlign:"center",marginLeft:'1rem',marginRight:'0',backgroundColor:'red',padding:0}}>X</button></span>
+            <br/>
+            <br/>
+            <span>{`${date.getMonth()}월 ${date.getDate()}일 ${date.getHours()}시 ${date.getMinutes()}분`}</span>
+            <br/>
+            <span ><button onClick={()=>DeleteItem(category,item)} style={{width:'20px', height:'20px',textAlign:"center",marginLeft:'1rem',marginRight:'0',backgroundColor:'red',padding:0}}>X</button></span>
         </div>
     )
 }

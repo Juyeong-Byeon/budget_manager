@@ -9,11 +9,7 @@ function App() {
  const [TotalBudget,setTotalBudget]=useState(0);
  const [budgetUseageInfos,setbudgetUseageInfo]=useState([
    
-   {
-    category:"공부",
-    items:[],
-    used:0
-   }
+  
   ]);
 
  const CategoryAdd=useCallback((newCategory)=>{
@@ -21,6 +17,11 @@ function App() {
     console.log('null!');
     return;
   }
+  if(budgetUseageInfos.find((c)=>c.category===newCategory)){
+    alert('이미 있는 카테고리 입니다.');
+    return;
+  }
+   
   setbudgetUseageInfo(budgetUseageInfos.concat(
     {
       category:newCategory,
@@ -32,28 +33,30 @@ function App() {
 
  },[budgetUseageInfos]);
 
- const ItemAdd=useCallback((item)=>{//item==={itemCategory:'',itemUseage:'',itemCost:0};
-  const {itemCategory,itemUsage,itemCost}=item;
+ const ItemAdd=useCallback(({itemCategory,itemUsage,itemCost})=>{//item==={itemCategory:'',itemUseage:'',itemCost:0};
   
-  if(!(itemCategory&&itemUsage&&itemCost)){
-    alert('입력폼을 확인해 주세요!');
-    //console.log(itemCategory,itemUsage,itemCost);
-    return -1;
-  }
-
-  setbudgetUseageInfo(()=>
-    budgetUseageInfos.map((useageInfo,index)=>{//카테고리가 같은 것만 수정함.
-      if(useageInfo.category===itemCategory){
-        return {
-          ...useageInfo,
-          items:useageInfo.items.concat({useage:itemUsage,cost:itemCost}),
-          used:Number(useageInfo.used)+Number(itemCost)
+        
+        if(!(itemCategory&&itemUsage&&itemCost)){
+          alert('입력폼을 확인해 주세요!');
+          //console.log(itemCategory,itemUsage,itemCost);
+          return -1;
         }
-      }else{
-        return useageInfo
-      }
-    })
-  );
+        const date=new Date();
+        
+        setbudgetUseageInfo(()=>
+          budgetUseageInfos.map((useageInfo,index)=>{//카테고리가 같은 것만 수정함.
+            if(useageInfo.category===itemCategory){
+              return {
+                ...useageInfo,
+                items:useageInfo.items.concat({itemCategory:itemCategory,useage:itemUsage,cost:itemCost,date:date}),
+                used:Number(useageInfo.used)+Number(itemCost),
+              
+              }
+            }else{
+              return useageInfo;
+            }
+          })
+        );
   
  
   //infos.items
@@ -74,8 +77,26 @@ function App() {
     );
   },[budgetUseageInfos]);
   
-  const DeleteItem=useCallback(({useage,cost})=>{
-    console.log(useage,cost);
+  const DeleteItem=useCallback((category,item)=>{
+   
+    
+    setbudgetUseageInfo(
+      budgetUseageInfos.map((useageInfo,i)=>{
+        if(useageInfo.category===category){
+          return {
+            ...useageInfo,
+            items:useageInfo.items.filter((e)=>e.date!==item.date),
+            used:Number(useageInfo.used)-Number(useageInfo.items.find((e)=>e.date===item.date).cost)
+          }
+          
+        }else{
+          return useageInfo;
+        }
+      })
+      );
+    
+    console.log(budgetUseageInfos);
+    
   },[budgetUseageInfos]);
 
   return (
