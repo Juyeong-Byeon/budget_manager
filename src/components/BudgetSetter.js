@@ -1,6 +1,6 @@
 import React,{useState,useCallback} from 'react'
 
-export default function BudgetSetter({SubmitBudget}) {
+export default function BudgetSetter({submitBudget}) {
     const [budget,setInputBudget]=useState(0);
     const [BudgetSetup,ToggleBudgetSetup]=useState(true);
     
@@ -19,7 +19,7 @@ export default function BudgetSetter({SubmitBudget}) {
            if(e.charCode===13){
             const inputText=e.target.value;
             ToggleBudgetSetup(!BudgetSetup);
-            SubmitBudget(inputText);
+            submitBudget(inputText);
            }
     };
     
@@ -27,7 +27,7 @@ export default function BudgetSetter({SubmitBudget}) {
         <div>
             <span><b>BUDGET:</b></span>
             {BudgetSetup?<input type='text' placeholder='Set your total budget' value={budget} onChange={budgetInputChange} onKeyPress={onKeyPress}></input>:""}
-            <button onClick={()=>{ToggleBudgetSetup(!BudgetSetup);SubmitBudget(budget)}}>{BudgetSetup?"Set!":"Change"}</button>
+            <button onClick={()=>{ToggleBudgetSetup(!BudgetSetup);submitBudget(budget)}}>{BudgetSetup?"Set!":"Change"}</button>
         </div>
     )
 }

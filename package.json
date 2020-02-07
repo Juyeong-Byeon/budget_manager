@@ -30,8 +30,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-    
-   
   },
-  "homepage": "."
+  "homepage": ".",
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
 }
