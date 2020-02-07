@@ -97,8 +97,10 @@ function App() {
 
   const deleteCategory=useCallback((category)=>{
     setbudgetUseageInfo(
-      budgetUsageInfos.filter((c)=>!c.category===category)
+      budgetUsageInfos.filter((c)=>!(c.category===category))
     );
+
+  
   },[budgetUsageInfos]);
   
   const deleteItem=useCallback((category,item)=>{
