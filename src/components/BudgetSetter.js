@@ -2,7 +2,7 @@ import React,{useState,useCallback} from 'react'
 
 export default function BudgetSetter({submitBudget}) {
     const [budget,setInputBudget]=useState(0);
-    const [BudgetSetup,ToggleBudgetSetup]=useState(true);
+    const [BudgetSetup,ToggleBudgetSetup]=useState(false);
     
 
     const budgetInputChange=useCallback((e)=>{

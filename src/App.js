@@ -9,32 +9,51 @@ function App() {
  const [totalBudget,setTotalBudget]=useState(0);
  const [budgetUsageInfos,setbudgetUseageInfo]=useState([]);
 
-//  const saveInfos=()=>{
+const saveInfos=()=>{
 
-//   localStorage.setItem('TotalBudget',JSON.stringify(TotalBudget));
-//   localStorage.setItem('budgetUsageInfos',JSON.stringify(budgetUsageInfos));
+   localStorage.setItem('totalBudget',JSON.stringify(totalBudget));
+   localStorage.setItem('budgetUsageInfos',JSON.stringify(budgetUsageInfos));
 
-//  } 
-// console.log(
-//  localStorage.getItem('TotalBudget'),
-//  localStorage.getItem('budgetUsageInfos')
-// )
-//   const loadInfos=()=>{
+  } 
 
-//     setTotalBudget(JSON.parse(localStorage.getItem('TotalBudget')));
-//     setbudgetUseageInfo(JSON.parse(localStorage.getItem('budgetUsageInfos')));
+  const loadInfos=()=>{
 
-
-//   } 
-
-//  useEffect(()=>{
-//    saveInfos()
-//  },[TotalBudget,budgetUsageInfos]);
-//   useEffect(()=>{
-//   if(TotalBudget===0||budgetUsageInfos===[])
-//    loadInfos();
+    const tempCost=Number(JSON.parse(localStorage.getItem('totalBudget')));
+    const tempInfo=JSON.parse(localStorage.getItem('budgetUsageInfos'));
+    console.log(typeof(tempCost),typeof(tempInfo));
+    if(tempCost&&tempInfo){
+      setTotalBudget(tempCost);
+      setbudgetUseageInfo(
+      tempInfo.map(({category,items,used},index)=>({
+        category,
+        items:
+          items.map(
+            ({itemCategory,useage,cost,date})=>({
+              itemCategory,
+              useage,
+              cost,
+              date:new Date(date)
+            })
+            ),
+        used
+      })) 
+      );
+  }
     
-//   },[])
+
+  } 
+
+
+  useEffect(()=>{
+  
+   loadInfos();
+  },[])
+
+  useEffect(()=>{
+    if(totalBudget!==0&&budgetUsageInfos!==[])
+    saveInfos();
+   })
+
 
  const addCategory=useCallback((newCategory)=>{
   if(!newCategory){
@@ -73,7 +92,7 @@ function App() {
               return {
                 ...useageInfo,
                 items:useageInfo.items.concat({itemCategory:itemCategory,useage:itemUsage,cost:itemCost,date:date}),
-                used:Number(useageInfo.used)+Number(itemCost),
+                used:useageInfo.used+itemCost,
               
               }
             }else{

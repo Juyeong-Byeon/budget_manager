@@ -13,7 +13,12 @@ export default function BudgetController({categorys,addCategory,addItem}) {
     
     return (
         <div style={{backgroundColor:'#192F5E',height:'35%',width:'90%',marginLeft:"auto",marginRight: 'auto',borderRadius:'5px',marginTop:'3rem'}}>
-            <span>ADD category: <input type='text' value={newCategoryInput} onChange={(e)=>{newCategoryOnchange(e)}} onKeyPress={(e)=>{if(e.charCode===13){addCategory(newCategoryInput);setNewCategoryInput('')}}}></input> <button onClick={()=>{addCategory(newCategoryInput);setNewCategoryInput('')}}>ADD</button></span>
+            <span>ADD category: <input type='text' value={newCategoryInput} onChange={(e)=>{newCategoryOnchange(e)}} onKeyPress={
+                (e)=>{if(e.charCode===13){addCategory(newCategoryInput);setNewCategoryInput('')}}
+                }></input>
+                <button onClick={()=>{addCategory(newCategoryInput);setNewCategoryInput('')}}
+                >ADD</button>
+            </span>
             <hr/>
             <div>
                 <span>
