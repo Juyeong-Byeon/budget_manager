@@ -45,7 +45,6 @@ const saveInfos=()=>{
 
 
   useEffect(()=>{
-  
    loadInfos();
   },[])
 
