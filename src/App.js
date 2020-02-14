@@ -1,5 +1,6 @@
 import React,{useState,useCallback,useEffect} from 'react';
-import './App.css';
+import './scss/bootstrap.scss';
+import './scss/bootstrap-grid.scss';
 import BudgetSetter from './components/BudgetSetter';
 import BudgetController from './components/BudgetController';
 import BudgetCategoryList from './components/BudgetCategoryList';
@@ -144,13 +145,13 @@ const saveInfos=()=>{
   },[budgetUsageInfos]);
 
   return (
-    <div className="App">
-      <h1>Budget manager</h1>
+    <div className="  container rounded text-center bg-dark text-light">
+      <h1 className='display-4 text-center'>Budget manager</h1>
       <hr/>
-      <BudgetSetter submitBudget={submitBudget} /*총예산 관리 컴포넌트*//>
-       <BudgetController addCategory={addCategory} addItem={addItem} categorys={budgetUsageInfos} /*카테고리별 예산관리, 사용내역 추가 컴포넌트*//>
-      <BudgetCategoryList deleteItem={deleteItem} budgetCategorys={budgetUsageInfos} deleteCategory={deleteCategory}/* 카테고리 리스트(카테고리(사용내역))*//>
-      <BudgetTotal totalBudget={totalBudget}  budgetUsageInfos={budgetUsageInfos} /*현제 남은 예산*//>
+      <BudgetSetter className='' submitBudget={submitBudget} /*총예산 관리 컴포넌트*//>
+       <BudgetController className='' addCategory={addCategory} addItem={addItem} categorys={budgetUsageInfos} /*카테고리별 예산관리, 사용내역 추가 컴포넌트*//>
+      <BudgetCategoryList className='' deleteItem={deleteItem} budgetCategorys={budgetUsageInfos} deleteCategory={deleteCategory}/* 카테고리 리스트(카테고리(사용내역))*//>
+      <BudgetTotal className='' totalBudget={totalBudget}  budgetUsageInfos={budgetUsageInfos} /*현제 남은 예산*//>
     </div>
   );
 }

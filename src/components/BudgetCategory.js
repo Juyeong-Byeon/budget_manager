@@ -1,5 +1,6 @@
 import React from 'react'
 import BudgetItem from './BudgetItem';
+import '../scss/bootstrap.scss';
 
 export default function BudgetCategory({budgetcategory,deleteCategory,deleteItem}) {
     
@@ -7,12 +8,12 @@ export default function BudgetCategory({budgetcategory,deleteCategory,deleteItem
     
     const handleDeleteCategory=(e)=>{deleteCategory(category)};
     return (
-        <div style={{ borderColor:'white', borderStyle:'solid', borderRadius:'0.4rem', backgroundColor:'rgba(5,5,5,0.1)',margin:'1rem'}}>
+        <div className='card bg-light mb-3 text-dark'>
             <div>
-                <span style={{textAlign:"center",margin:'auto'}}>category : {category?category:""}</span>
-                <span ><button onClick={handleDeleteCategory} style={{width:'20px', height:'20px',textAlign:"center",marginLeft:'1rem',marginRight:'0',backgroundColor:'red',padding:0}}>X</button></span>
-            </div>
-            <div>
+                <span className='card-header'>category : {category?category:""}</span>
+                <span ><button className='btn btn-danger btn-sm ' onClick={handleDeleteCategory}>X</button></span>
+            </div >
+            <div className='card-body'>
                 {items&&items.map((item,i)=><BudgetItem deleteItem={deleteItem}  key={i} item={item} category={category}/>)}
             </div>
         </div>

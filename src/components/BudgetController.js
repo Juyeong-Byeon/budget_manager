@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import '../scss/bootstrap.scss';
 
 export default function BudgetController({categorys,addCategory,addItem}) {
     const [newCategoryInput,setNewCategoryInput]=useState('');// 카테고리 생성용 state
@@ -12,27 +13,27 @@ export default function BudgetController({categorys,addCategory,addItem}) {
 
     
     return (
-        <div style={{backgroundColor:'#192F5E',height:'35%',width:'90%',marginLeft:"auto",marginRight: 'auto',borderRadius:'5px',marginTop:'3rem'}}>
-            <span>ADD category: <input type='text' value={newCategoryInput} onChange={(e)=>{newCategoryOnchange(e)}} onKeyPress={
+        <div className='container '>
+            <span >ADD category: <input type='text' value={newCategoryInput} onChange={(e)=>{newCategoryOnchange(e)}} onKeyPress={
                 (e)=>{if(e.charCode===13){addCategory(newCategoryInput);setNewCategoryInput('')}}
                 }></input>
-                <button onClick={()=>{addCategory(newCategoryInput);setNewCategoryInput('')}}
+                <button className='btn btn-primary' onClick={()=>{addCategory(newCategoryInput);setNewCategoryInput('')}}
                 >ADD</button>
             </span>
             <hr/>
             <div>
                 <span>
-                        <label htmlFor="selectCategory">Category : </label>
-                        <select style={{backgroundColor:'#192F5E', color:'rgb(255,255,255)',width:'30%'}} id='selectCategory' onChange={(e)=>setItem({...currentItem,itemCategory:e.target.value})} value={currentItem.itemCategory}>
+                        <label className='col-form-label' htmlFor="selectCategory">Category : </label>
+                        <select className=''  id='selectCategory' onChange={(e)=>setItem({...currentItem,itemCategory:e.target.value})} value={currentItem.itemCategory}>
                             <option key='default'>선택</option>
                            {categorys&&categorys.map((category,index)=>{return(<option key={category.category}>{category.category}</option>)})}
                         </select>
                 </span>
                     <hr/>
-                <label htmlFor='usage'> Usage : </label>
+                <label className='col-form-label' htmlFor='usage'> Usage : </label>
                 <input id='usage' type='text' value={currentItem.itemUsage} onChange={(e)=>setItem({...currentItem,itemUsage:e.target.value})}></input>
                     <hr/>
-                <label>Cost : </label>
+                <label className='col-form-label'>Cost : </label>
                 <input id='Cost' type='text' value={currentItem.itemCost}
                     onKeyPress={(e)=>{
                             if(e.charCode===13){
@@ -53,7 +54,7 @@ export default function BudgetController({categorys,addCategory,addItem}) {
                     }}
                     ></input>
                     <hr/>
-                <button style={{marginTop:'0.5rem'}} 
+                <button className='btn btn-primary btn-lg btn-block' 
                 onClick={(e)=>{
                     if(addItem(currentItem)===-1)return;
                     setItem(()=>{return{itemCategory:'',itemUsage:'',itemCost:0}})
