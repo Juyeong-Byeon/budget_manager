@@ -13,6 +13,7 @@ export default function BudgetController({categorys,addCategory,addItem}) {
 
     
     return (
+        <section>
         <div className='container '>
             <span >ADD category: <input type='text' value={newCategoryInput} onChange={(e)=>{newCategoryOnchange(e)}} onKeyPress={
                 (e)=>{if(e.charCode===13){addCategory(newCategoryInput);setNewCategoryInput('')}}
@@ -63,5 +64,6 @@ export default function BudgetController({categorys,addCategory,addItem}) {
                     >ADD</button>
             </div>
         </div>
+        </section>
     )
 }

@@ -25,10 +25,10 @@ export default function BudgetSetter({submitBudget}) {
     };
     
     return (
-        <div>
+        <section>
             <span><b>BUDGET:</b></span>
             {BudgetSetup?<input type='text' placeholder='Set your total budget' value={budget} onChange={budgetInputChange} onKeyPress={onKeyPress}></input>:""}
             <button className='btn btn-primary' onClick={()=>{ToggleBudgetSetup(!BudgetSetup);submitBudget(budget)}}>{BudgetSetup?"Set!":"Change"}</button>
-        </div>
+        </section>
     )
 }

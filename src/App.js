@@ -146,7 +146,9 @@ const saveInfos=()=>{
 
   return (
     <div className="  container rounded text-center bg-dark text-light">
+      <header>
       <h1 className='display-4 text-center'>Budget manager</h1>
+      </header>
       <hr/>
       <BudgetSetter className='' submitBudget={submitBudget} /*총예산 관리 컴포넌트*//>
        <BudgetController className='' addCategory={addCategory} addItem={addItem} categorys={budgetUsageInfos} /*카테고리별 예산관리, 사용내역 추가 컴포넌트*//>
